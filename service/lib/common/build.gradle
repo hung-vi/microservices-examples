@@ -1,0 +1,56 @@
+buildscript {
+	ext {
+		springBootVersion = '2.1.4.RELEASE'
+		junitPlatformVersion = '1.5.0-M1'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+plugins {
+	id("org.springframework.boot") version "2.0.2.RELEASE"
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'io.spring.dependency-management'
+
+jar {
+	baseName = 'common'
+	version = '0.0.1-SNAPSHOT'
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+test {
+	useJUnitPlatform()
+}
+
+bootJar { enabled = false }
+
+dependencies {
+	compile 'org.springframework.boot:spring-boot-starter'
+	compile 'org.springframework.boot:spring-boot-starter-web'
+	compile 'org.apache.commons:commons-lang3:3.4'
+	
+	compileOnly 'org.projectlombok:lombok'
+
+	annotationProcessor 'org.projectlombok:lombok'
+	testCompile('org.springframework.boot:spring-boot-starter-test') {
+		exclude module: 'junit'
+	}
+	testCompile 'org.springframework.boot:spring-boot-test-autoconfigure'
+	testCompile 'org.assertj:assertj-core'
+	testCompileOnly 'org.projectlombok:lombok'
+
+	testCompile('org.junit.jupiter:junit-jupiter-api')
+	testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine')
+}
