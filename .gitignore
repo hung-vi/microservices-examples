@@ -1,0 +1,11 @@
+*.swp
+.gradle
+.idea
+build
+*.iml
+*.DS_Store
+*.class
+org.eclipse.*
+*.classpath
+*.project
+*.prefs
