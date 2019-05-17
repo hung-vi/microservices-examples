@@ -28,7 +28,6 @@ services:
       KONG_PG_HOST: postgresql
       KONG_TRUSTED_IPS: 0.0.0.0/0
       KONG_ADMIN_LISTEN: "0.0.0.0:8001, 127.0.0.1:8444 ssl"
-      ACCOUNT_DATABASE_HOST: postgresql
     depends_on:
       postgresql:
         condition: service_healthy
