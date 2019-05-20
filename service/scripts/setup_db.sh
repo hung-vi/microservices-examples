@@ -25,11 +25,11 @@ echo `docker-compose run --rm postgresql psql -U vnext -h postgresql -f - << EOS
 CREATE USER kong;
 
 CREATE DATABASE kong OWNER kong;
-CREATE DATABASE "user";
+CREATE DATABASE "account";
 EOS`
 
-user_sqls=(
-    "user-database.sql"
+account_sqls=(
+    "account-database.sql"
 )
 
-initialize_db user user_sqls
+initialize_db account account_sqls
