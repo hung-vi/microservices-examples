@@ -7,7 +7,8 @@
 
 buildscript {
 	ext {
-		assertjCoreVersion = "3.11.1"
+		assertjCoreVersion = "3.12.2"
+		mockitoAllVersion = "1.10.19"
 	}
 }
 
