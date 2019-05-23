@@ -13,7 +13,6 @@ apply plugin: 'eclipse'
 apply plugin: 'io.spring.dependency-management'
 
 jar {
-	baseName = 'common'
 	version = '0.0.1-SNAPSHOT'
 }
 
@@ -33,10 +32,11 @@ dependencies {
 	compile 'org.springframework.boot:spring-boot-starter'
 	compile 'org.springframework.boot:spring-boot-starter-web'
 	compile 'org.apache.commons:commons-lang3:3.4'
-	
+
+	compile group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.1-api', version: '1.0.0.Final'
+
 	compileOnly 'org.projectlombok:lombok'
 
-	annotationProcessor 'org.projectlombok:lombok'
 	testCompile('org.springframework.boot:spring-boot-starter-test') {
 		exclude module: 'junit'
 	}
