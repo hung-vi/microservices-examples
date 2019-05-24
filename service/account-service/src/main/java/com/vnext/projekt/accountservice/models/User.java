@@ -3,13 +3,16 @@ package com.vnext.projekt.accountservice.models;
 import com.vnext.projekt.common.models.CustomTimestamp;
 import com.vnext.projekt.common.models.Email;
 import com.vnext.projekt.common.models.UserId;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Convert;
+import javax.persistence.Converter;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -21,7 +24,8 @@ import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@ToString
 @Entity
 @IdClass(UserId.class)
 @Table(name = "user", schema = "public")
@@ -38,11 +42,12 @@ public class User {
     @Column(name = "email")
     @NotNull
     @Getter
+    @Convert(converter = Email.JpaConverter.class)
     private Email email;
 
-    @Column(name = "password")
     @NotNull
     @Getter
+    @Convert(converter = Password.JpaConverter.class)
     private Password password;
 
     @Embedded
@@ -82,16 +87,14 @@ public class User {
         this.updatedAt = _updatedAt;
     }
 
-    public void setId(@NonNull UserId _id)
-    {
+    public void setId(@NonNull UserId _id) {
         this.tableId = _id.toLong();
         this.id = _id;
     }
 
     @PostPersist
     @PostLoad
-    private void setupId()
-    {
+    private void setupId() {
         this.id = UserId.of(this.tableId);
     }
 

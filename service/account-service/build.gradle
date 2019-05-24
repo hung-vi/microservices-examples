@@ -41,6 +41,7 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     compile 'org.mindrot:jbcrypt:0.4'
     compile 'org.apache.commons:commons-lang:3.4'
+    compile 'org.apache.tomcat:tomcat-jdbc'
 
     testCompile('org.springframework.boot:spring-boot-starter-test') {
         exclude module: 'junit', group: 'junit'

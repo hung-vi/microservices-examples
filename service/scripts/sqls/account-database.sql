@@ -1,6 +1,8 @@
+CREATE SEQUENCE user_seq;
+
 CREATE TABLE "user"
 (
-	id         BIGINT NOT NULL,
+	id         BIGINT NOT NULL DEFAULT NEXTVAL('user_seq'),
 	email      VARCHAR(128) NOT NULL UNIQUE,
 	password   VARCHAR(128) NOT NULL,
 	first_name VARCHAR(32)  NOT NULL,

@@ -13,10 +13,10 @@ public class Email {
 
     @NonNull
     @javax.validation.constraints.Email
-    private final String value;
+    private final String email;
 
-    private Email(String _value) {
-        this.value = _value;
+    private Email(String _email) {
+        this.email = _email;
     }
 
     public static Email of(@NonNull String _email) {
@@ -25,15 +25,15 @@ public class Email {
 
     @Override
     public String toString() {
-        return this.value;
+        return this.email;
     }
 
     public String getLocalPart() {
-        return StringUtils.split(this.value, "@", 2)[0];
+        return StringUtils.split(this.email, "@", 2)[0];
     }
 
     public String getDomainPart() {
-        return StringUtils.split(this.value, "@", 2)[1];
+        return StringUtils.split(this.email, "@", 2)[1];
     }
 
     @Converter(autoApply = true)

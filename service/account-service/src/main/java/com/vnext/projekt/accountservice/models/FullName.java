@@ -32,14 +32,22 @@ public class FullName {
     }
 
     public static FullName of(@NonNull String _firstName, @NonNull String _lastName) {
-        if (StringUtils.isBlank(_firstName)) {
+        if (!isValidFirstName(_firstName)) {
             throw new IllegalArgumentException("invalid firstName");
         }
 
-        if (StringUtils.isBlank(_lastName)) {
+        if (!isValidLastName(_lastName)) {
             throw new IllegalArgumentException("invalid lastName");
         }
 
         return new FullName(_firstName, _lastName);
+    }
+
+    public static boolean isValidFirstName(@NonNull String _firstName) {
+        return StringUtils.isNotBlank(_firstName);
+    }
+
+    public static boolean isValidLastName(@NonNull String _lastName) {
+        return StringUtils.isNotBlank(_lastName);
     }
 }
