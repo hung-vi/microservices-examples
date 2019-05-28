@@ -14,4 +14,6 @@ public interface UserService {
     User createUser(@NonNull Email _email, @NonNull Password _password, @NonNull FullName _fullName) throws ResourceViolationException;
 
     User getUser(@NonNull UserId _id) throws ResourceNotFoundException;
+
+    User updateUser(@NonNull UserId _userId);
 }

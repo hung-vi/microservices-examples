@@ -1,4 +1,4 @@
-package com.vnext.projekt.common.api;
+package com.vnext.projekt.common.api.responses;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

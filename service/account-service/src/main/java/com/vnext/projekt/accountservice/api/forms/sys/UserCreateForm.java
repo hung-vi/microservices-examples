@@ -32,4 +32,11 @@ public class UserCreateForm {
     @NotNull
     @Length(min = 1, max = 32)
     private String lastName;
+
+    public UserCreateForm() {
+        this.email = null;
+        this.firstName = null;
+        this.lastName = null;
+        this.password = null;
+    }
 }

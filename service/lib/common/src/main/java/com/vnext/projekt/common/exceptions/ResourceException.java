@@ -1,20 +1,21 @@
 package com.vnext.projekt.common.exceptions;
 
+
 public class ResourceException extends Exception {
 
-    public ResourceException() {
+    ResourceException() {
         super();
     }
 
-    public ResourceException(String _message) {
+    ResourceException(String _message) {
         super(_message);
     }
 
-    public ResourceException(Throwable _cause) {
+    ResourceException(Throwable _cause) {
         super(_cause);
     }
 
-    public ResourceException(String _message, Throwable _cause) {
+    ResourceException(String _message, Throwable _cause) {
         super(_message, _cause);
     }
 }

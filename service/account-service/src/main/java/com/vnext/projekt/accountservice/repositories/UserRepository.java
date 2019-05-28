@@ -1,13 +1,19 @@
 package com.vnext.projekt.accountservice.repositories;
 
 import com.vnext.projekt.accountservice.models.User;
+import com.vnext.projekt.common.models.Email;
 import com.vnext.projekt.common.models.UserId;
-import lombok.NonNull;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 import java.util.Optional;
 
-public interface UserRepository extends JpaRepository<User, UserId>, JpaSpecificationExecutor<User> {
+public interface UserRepository {
+
+    Optional<User> find(UserId _id);
+
+    Optional<User> findByEmail(Email _email);
+
+    User save(User _user);
+
+    void delete(UserId _id);
 
 }

@@ -5,9 +5,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 import org.apache.commons.lang3.StringUtils;
 
-import javax.persistence.AttributeConverter;
-import javax.persistence.Converter;
-
 @EqualsAndHashCode
 public class Email {
 
@@ -36,17 +33,4 @@ public class Email {
         return StringUtils.split(this.email, "@", 2)[1];
     }
 
-    @Converter(autoApply = true)
-    public static class JpaConverter implements AttributeConverter<Email, String> {
-
-        @Override
-        public String convertToDatabaseColumn(Email _attribute) {
-            return _attribute.toString();
-        }
-
-        @Override
-        public Email convertToEntityAttribute(String dbData) {
-            return Email.of(dbData);
-        }
-    }
 }

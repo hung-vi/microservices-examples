@@ -1,14 +1,13 @@
 package com.vnext.projekt.common.utils;
 
-import com.vnext.projekt.common.utils.StringCaseUtils;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
-public class StringCaseUtilsTests
+class StringCaseUtilsTests
 {
 	@Test
-	public void testSnakeCaseToCamelCase()
+	void testSnakeCaseToCamelCase()
 	{
 		assertThat(StringCaseUtils.snakeCaseToCamelCase("aaa")).isEqualTo("aaa");
 		assertThat(StringCaseUtils.snakeCaseToCamelCase("aaa_bbb_ccc")).isEqualTo("aaaBbbCcc");
@@ -19,7 +18,7 @@ public class StringCaseUtilsTests
 	}
 
 	@Test
-	public void testCamelCaseToSnakeCase()
+	void testCamelCaseToSnakeCase()
 	{
 		assertThat(StringCaseUtils.camelCaseToSnakeCase("aaa")).isEqualTo("aaa");
 		assertThat(StringCaseUtils.camelCaseToSnakeCase("aaaBbbCcc")).isEqualTo("aaa_bbb_ccc");

@@ -38,9 +38,12 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
     runtimeOnly 'org.postgresql:postgresql'
+
     compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
     compile 'org.mindrot:jbcrypt:0.4'
-    compile 'org.apache.commons:commons-lang:3.4'
+    compile 'org.apache.commons:commons-lang3:3.9'
     compile 'org.apache.tomcat:tomcat-jdbc'
 
     testCompile('org.springframework.boot:spring-boot-starter-test') {
@@ -51,6 +54,8 @@ dependencies {
 
     testCompile "org.assertj:assertj-core:$assertjCoreVersion"
     testCompile "org.mockito:mockito-all:$mockitoAllVersion"
+
+    testCompileOnly 'org.projectlombok:lombok'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testCompile 'org.junit.jupiter:junit-jupiter-params'

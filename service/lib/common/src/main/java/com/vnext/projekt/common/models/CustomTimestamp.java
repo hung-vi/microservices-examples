@@ -1,5 +1,9 @@
 package com.vnext.projekt.common.models;
 
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.NonNull;
+
 import java.sql.Timestamp;
 import java.time.DateTimeException;
 import java.time.Instant;
@@ -7,13 +11,6 @@ import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-
-import javax.persistence.AttributeConverter;
-import javax.persistence.Converter;
-
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NonNull;
 
 @AllArgsConstructor(staticName = "of")
 @EqualsAndHashCode
@@ -50,22 +47,4 @@ public class CustomTimestamp {
         return UTC_DATETIME_FORMATTER.format(this.odt);
     }
 
-    /**
-     * JPA用コンバータクラス.
-     */
-    @Converter(autoApply = true)
-    public static class JpaConverter implements AttributeConverter<CustomTimestamp, Timestamp>
-    {
-        @Override
-        public Timestamp convertToDatabaseColumn(CustomTimestamp _attribute)
-        {
-            return _attribute.toTimestamp();
-        }
-
-        @Override
-        public CustomTimestamp convertToEntityAttribute(Timestamp _dbData)
-        {
-            return CustomTimestamp.of(_dbData);
-        }
-    }
 }

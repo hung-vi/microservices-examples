@@ -1,13 +1,8 @@
 package com.vnext.projekt.accountservice.models;
 
-import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import org.mindrot.jbcrypt.BCrypt;
-
-import javax.persistence.AttributeConverter;
-import javax.persistence.Converter;
 
 @EqualsAndHashCode
 public class Password {
@@ -41,17 +36,4 @@ public class Password {
         return this.hash;
     }
 
-    @Converter(autoApply = true)
-    public static class JpaConverter implements AttributeConverter<Password, String> {
-
-        @Override
-        public String convertToDatabaseColumn(Password _attribute) {
-            return _attribute.toHash();
-        }
-
-        @Override
-        public Password convertToEntityAttribute(String _dbData) {
-            return Password.ofHash(_dbData);
-        }
-    }
 }

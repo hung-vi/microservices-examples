@@ -6,8 +6,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
-import javax.persistence.AttributeConverter;
-import javax.persistence.Converter;
 import javax.persistence.Embeddable;
 import java.io.Serializable;
 
@@ -17,7 +15,7 @@ import java.io.Serializable;
 @Embeddable
 public class UserId implements Serializable {
     @NonNull
-    private Long tableId;
+    private Long id;
 
     public static UserId of(@NonNull String _id) {
         return UserId.of(Long.parseLong(_id));
@@ -25,23 +23,11 @@ public class UserId implements Serializable {
 
     @Override
     public String toString() {
-        return this.tableId.toString();
+        return this.id.toString();
     }
 
     public Long toLong() {
-        return this.tableId;
+        return this.id;
     }
 
-    @Converter(autoApply = true)
-    public static class JpaConverter implements AttributeConverter<UserId, Long> {
-        @Override
-        public Long convertToDatabaseColumn(UserId _attribute) {
-            return _attribute.tableId;
-        }
-
-        @Override
-        public UserId convertToEntityAttribute(Long _dbData) {
-            return UserId.of(_dbData);
-        }
-    }
 }
