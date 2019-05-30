@@ -32,6 +32,17 @@ services:
       postgresql:
         condition: service_healthy
 
+  account-service:
+    image: account-service
+    build:
+      context: ./account-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://192.84.4.108:5432/account
+    depends_on:
+      postgresql:
+        condition: service_healthy
+
+
 networks:
   default:
     external:
