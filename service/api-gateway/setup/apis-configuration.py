@@ -10,6 +10,10 @@ services = [
     {
         'name': 'account-service-sys-users',
         'url': 'http://account-service:8080/sys/users'
+    },
+    {
+        'name': 'mail-service-sys-mails',
+        'url': 'http://mail-service:8080/sys/mails'
     }
 ]
 
@@ -18,6 +22,11 @@ apis = [
         'name' : 'sysApi.users',
         'paths': ['/sys/v1/users'],
         'hosts': ['http://account-service:8080/sys/users']
+    },
+    {
+        'name' : 'sysApi.mails',
+        'paths': ['/sys/v1/mails'],
+        'hosts': ['http://mail-service:8080/sys/mails']
     }
 ]
 

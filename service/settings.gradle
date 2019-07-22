@@ -9,4 +9,4 @@
 
 rootProject.name = "projekt"
 
-include 'lib:common', 'account-service'
+include 'lib:common', 'account-service', 'mail-service'

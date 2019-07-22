@@ -1,6 +1,7 @@
 package com.vnext.projekt.mailservice.infrastructure.messaging.kafka.message;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.vnext.projekt.mailservice.models.EmailId;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -11,9 +12,9 @@ public class EmailDeliveryInboundMessage
 {
     @JsonProperty(value = "emailId")
     @Setter
-    private String emailId;
+    private EmailId emailId;
 
-    public Optional<String> getEmailId()
+    public Optional<EmailId> getEmailId()
     {
         return Optional.ofNullable(this.emailId);
     }

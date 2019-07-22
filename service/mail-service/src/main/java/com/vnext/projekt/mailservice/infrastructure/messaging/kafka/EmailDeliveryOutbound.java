@@ -5,7 +5,7 @@ import org.springframework.messaging.MessageChannel;
 
 public interface EmailDeliveryOutbound
 {
-    public final String OUTPUT = "emailDeliveryOutput";
+    public final String OUTPUT = "emailDeliveryOutbound";
 
     @Output(EmailDeliveryOutbound.OUTPUT)
     MessageChannel output();
