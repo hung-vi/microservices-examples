@@ -7,6 +7,6 @@ public interface MailService
 {
     void create(MailCreateForm _form);
 
-    void send(EmailId _emailId);
+    void send(EmailId _emailId) throws Exception;
 
 }

@@ -23,9 +23,9 @@ public class DefaultMailService implements MailService
     }
 
     @Override
-    public void send(EmailId _emailId)
+    public void send(EmailId _emailId) throws Exception
     {
-        System.out.println(String.format("Email [%s] was sent.", _emailId.toString()));
+        throw new Exception(String.format("Email [%s] delivery failed.", _emailId.toString()));
     }
 
 }

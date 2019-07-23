@@ -1,7 +1,6 @@
 package com.vnext.projekt.mailservice.infrastructure.messaging.kafka;
 
 import com.vnext.projekt.mailservice.infrastructure.messaging.kafka.message.EmailDeliveryInboundMessage;
-import com.vnext.projekt.mailservice.models.EmailId;
 import com.vnext.projekt.mailservice.services.MailService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ public class EmailDeliverySubscriber
     MailService mailService;
 
     @StreamListener(EmailDeliveryInbound.INPUT)
-    public void receive(@Payload EmailDeliveryInboundMessage _message)
+    public void receive(@Payload EmailDeliveryInboundMessage _message) throws Exception
     {
         if (_message.getEmailId().isPresent()) {
             log.info("Receiving " +  _message.toString());
