@@ -14,6 +14,10 @@ services = [
     {
         'name': 'mail-service-sys-mails',
         'url': 'http://mail-service:8080/sys/mails'
+    },
+    {
+        'name': 'photo-service-sys-photos',
+        'url': 'http://photo-service:8080/sys/photos'
     }
 ]
 
@@ -27,6 +31,11 @@ apis = [
         'name' : 'sysApi.mails',
         'paths': ['/sys/v1/mails'],
         'hosts': ['http://mail-service:8080/sys/mails']
+    },
+    {
+        'name' : 'sysApi.photos',
+        'paths': ['/sys/v1/photos'],
+        'hosts': ['http://photo-service:8080/sys/photos']
     }
 ]
 

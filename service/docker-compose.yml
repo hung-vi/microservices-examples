@@ -17,6 +17,21 @@ services:
         retries: 3
     mem_limit: 500m
 
+  activemq:
+    image: activemq:5.15.4
+    build:
+      context: ./activemq
+      args:
+        - http_proxy
+        - https_proxy
+    ports:
+      - 61616:61616
+      - 8161:8161
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+    mem_limit: 500m
+
   zookeeper:
     image: zookeeper:3.4
     ports:
@@ -78,6 +93,13 @@ services:
       postgresql:
         condition: service_healthy
 
+  photo-service:
+    image: photo-service
+    build:
+      context: ./mail-service
+    depends_on:
+      postgresql:
+        condition: service_healthy
 
 networks:
   default:
